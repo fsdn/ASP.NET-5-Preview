@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "WebMvcState"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-WebMvcState-94acc42a-cc6e-4e74-bc63-9e69ab0d6e5a;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
