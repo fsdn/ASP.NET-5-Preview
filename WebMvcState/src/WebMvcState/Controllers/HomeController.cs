@@ -10,7 +10,7 @@ namespace WebMvcState.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["H"] = "Hello World";
+            ViewData["H"] = "Hello World！！！";
             return View();
         }
 
