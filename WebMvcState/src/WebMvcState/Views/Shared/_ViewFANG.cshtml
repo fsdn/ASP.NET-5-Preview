@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+@section headers{
+    <environment names="Development">
+        <!-- css -->
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/all/all.css" rel="stylesheet" />
+        <link href="~/css/all/viewfang.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/min/viewfang.min.css" rel="stylesheet" />
+    </environment>
+    @RenderSection("headers", required: false)
+}
+
+@section footers{
+    <environment names="Development">
+        <!-- js -->
+        <script src="~/js/min/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/all/all.js"></script>
+        <script src="~/js/all/viewfang.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/min/viewfang.min.js"></script>
+    </environment>
+    @RenderSection("footers", required: false)
+}
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="ViewFANG">
+    <header>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <a class="navbar-brand" asp-controller="" asp-action="">ASP.NET 5 Preview</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a asp-controller="FANG" asp-action="Index">FANG</a>
+                        </li>
+                        <li>
+                            <a asp-controller="WeiXin" asp-action="Index">WeiXin</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a asp-controller="" asp-action="">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="view_body">
+        @RenderBody()
+    </div>
+    <footer class="view_footer">
+        <div class="container">
+            <hr />
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">&copy; @DateTime.Now.Year - ASP.NET 5 Preview</div>
+            </div>
+        </div>
+    </footer>
+</div>

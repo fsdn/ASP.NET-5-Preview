@@ -1,0 +1,11 @@
+﻿.ViewFANG {
+}
+
+    .ViewFANG .view_body {
+        display: block;
+        margin: 50px auto auto auto;
+    }
+
+    .ViewFANG .view_footer {
+        margin: auto auto 30px auto;
+    }

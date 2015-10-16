@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+@section headers{
+    <environment names="Development">
+        <!-- css -->
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/all/all.css" rel="stylesheet" />
+        <link href="~/css/all/viewweixin.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/min/viewweixin.min.css" rel="stylesheet" />
+    </environment>
+    @RenderSection("headers", required: false)
+}
+
+@section footers{
+    <environment names="Development">
+        <!-- js -->
+        <script src="~/js/min/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/all/all.js"></script>
+        <script src="~/js/all/viewweixin.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/min/viewweixin.min.js"></script>
+    </environment>
+    @RenderSection("footers", required: false)
+}
+
+<a asp-controller="" asp-action="" class="hide"></a>
+@RenderBody()

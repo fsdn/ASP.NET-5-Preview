@@ -1,0 +1,21 @@
+﻿.GlyphiconsHalflings {
+}
+
+    .GlyphiconsHalflings .row > .col {
+        min-height: 110px;
+        padding: 10px 0px;
+        cursor: pointer;
+    }
+
+        .GlyphiconsHalflings .row > .col:hover {
+            color: #fff;
+            background-color: #68217a;
+        }
+
+    .GlyphiconsHalflings .text-center > i {
+        font-size: 24px;
+    }
+
+    .GlyphiconsHalflings .text-center > span {
+        font-size: 10px;
+    }

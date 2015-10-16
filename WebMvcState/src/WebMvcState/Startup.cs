@@ -43,6 +43,8 @@ namespace WebMvcState
             }
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            mvcRootConfig(env, appEnv); // 调用自定义的config
         }
 
         public IConfiguration Configuration { get; set; }
@@ -96,6 +98,7 @@ namespace WebMvcState
 
             // Configure the HTTP request pipeline.
 
+
             // Add the following to the request pipeline only in development environment.
             if (env.IsDevelopment())
             {
@@ -128,11 +131,21 @@ namespace WebMvcState
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=FANG}/{action=Index}/{id?}");
 
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+        }
+
+        /// <summary>
+        /// 自定义，配置方法
+        /// </summary>
+        /// <param name="env"></param>
+        public void mvcRootConfig(IHostingEnvironment env, IApplicationEnvironment appEnv)
+        {
+            FGHelper.PBHelper.AppRootPath = appEnv.ApplicationBasePath;
+            FGHelper.PBHelper.WebRootPath = env.WebRootPath;
         }
     }
 }

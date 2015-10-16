@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "WeiXin Index";
+    Layout = "~/views/shared/_viewweixin.cshtml";
+}
+
+@section headers{
+    <environment names="Development">
+        <link href="~/css/weixin/index.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/css/min/index_weixin.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/weixin/index.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/index_weixin.min.js"></script>
+    </environment>
+}
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="WeiXinIndex">
+    <h1>WeiXin Index</h1>
+</div>

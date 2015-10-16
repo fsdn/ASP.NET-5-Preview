@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "FANG GlyphiconsHalflings";
+    Layout = "~/views/shared/_viewfang.cshtml";
+}
+@section headers{
+    <environment names="Development">
+        <link href="~/css/fang/glyphiconshalflings.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/css/min/glyphiconshalflings.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/fang/glyphiconshalflings.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/glyphiconshalflings.min.js"></script>
+    </environment>
+}
+
+@model WebMvcState.Models.FANGGlyphiconsHalflingsOutModel
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="GlyphiconsHalflings">
+    <div class="container">
+        <h2>GlyphiconsHalflings IconFont</h2>
+        @foreach (var font in Model.IconFont.IconFontList)
+        {
+            <h4 class="page-header">@font.FontFamily</h4>
+            <div class="row">
+                @foreach (var icon in font.IconClassList)
+                {
+                    <div class="col col-xs-3 col-sm-1">
+                        <div class="text-center">
+                            <i class="@string.Format("glyphicon {0}",icon.ClassName)"></i>
+                        </div>
+                        <div class="text-center">
+                            <span>@icon.ClassName</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

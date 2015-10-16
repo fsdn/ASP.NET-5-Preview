@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "FANG AgileFont";
+    Layout = "~/views/shared/_viewfang.cshtml";
+}
+@section headers{
+    <environment names="Development">
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconline.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconform.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconweather.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconlogo.css" rel="stylesheet" />
+        <link href="~/css/fang/agilefont.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconline.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconform.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconweather.css" rel="stylesheet" />
+        <link href="~/lib/agile-lite/dist/agile/css/flat/iconlogo.css" rel="stylesheet" />
+        <link href="~/css/min/agilefont.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/fang/agilefont.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/agilefont.min.js"></script>
+    </environment>
+}
+
+@model WebMvcState.Models.FANGAgileFontOutModel
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="AgileFont">
+    <div class="container">
+        <h2>AgileLite IconFont</h2>
+        @foreach (var font in Model.IconFont.IconFontList)
+        {
+            <h4 class="page-header">@font.FontFamily</h4>
+            <div class="row">
+                @foreach (var icon in font.IconClassList)
+                {
+                    <div class="col col-xs-3 col-sm-1">
+                        <div class="text-center">
+                            <i class="@icon.ClassName"></i>
+                        </div>
+                        <div class="text-center">
+                            <span>@icon.ClassName</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "FANG ScreenSize";
+    Layout = "~/views/shared/_viewfang.cshtml";
+}
+@section headers{
+    <environment names="Development">
+        <link href="~/css/fang/screensize.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/css/min/screensize.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/fang/screensize.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/screensize.min.js"></script>
+    </environment>
+}
+
+@model WebMvcState.Models.FANGScreenSizeOutModel
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="ScreenSize">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">屏幕大小测量</h3>
+            </div>
+            <div class="panel-body">
+                <div class="browser_info"></div>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>

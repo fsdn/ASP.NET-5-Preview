@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "FANG Index";
+    Layout = "~/views/shared/_viewfang.cshtml";
+}
+
+@section headers{
+    <environment names="Development">
+        <link href="~/css/fang/index.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/css/min/index_fang.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/fang/index.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/index_fang.min.js"></script>
+    </environment>
+}
+
+@model WebMvcState.Models.FANGIndexOutModel
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="FANGIndex">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>ASP.NET 5 Preview！</h1>
+            <h2>Mvc Catalog</h2>
+            <p>This is the project catalog, list for controller and it's child action. You can link to it's page look at the effect. This just for test, if you don't like to spray.</p>
+        </div>
+        <div class="panel-group" id="catalogList" role="tablist" aria-multiselectable="true">
+            @foreach (var clt in Model.MvcIndex.ControllerList)
+            {
+                var cltIndex = Model.MvcIndex.ControllerList.IndexOf(clt);
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="@(string.Format("heading_{0}",cltIndex))">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#catalogList" href="@string.Format("#collapse_{0}",cltIndex)">
+                                <code>@(string.Format("Controller: {0}Controller", clt.ControllerName))</code>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" id="@(string.Format("collapse_{0}",cltIndex))" role="tabpanel" aria-labelledby="@(string.Format("heading_{0}",cltIndex))" aria-expanded="true">
+                        <table class="table">
+                            <thead>
+                                <tr class="row text-primary">
+                                    <th class="col-xs-2 col-sm-2 text-center" scope="row">#</th>
+                                    <th class="col-xs-3 col-sm-3">Aciton</th>
+                                    <th class="col-xs-7 col-sm-7">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var alt in clt.ActionList)
+                                {
+                                    var altIndex = clt.ActionList.IndexOf(alt);
+                                    var rowNumber = altIndex + 1;
+
+                                    <tr class="row">
+                                        <td class="col-xs-2 col-sm-2 text-center text-primary" scope="row">@rowNumber</td>
+                                        <td class="col-xs-3 col-sm-3">
+                                            <a href="@alt.ActionHyperLink">
+                                                <code>@alt.ActionName</code>
+                                            </a>
+                                        </td>
+                                        <td class="col-xs-7 col-sm-7">@alt.ActionDescription</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-body hide"></div>
+                    <div class="panel-footer hide"></div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

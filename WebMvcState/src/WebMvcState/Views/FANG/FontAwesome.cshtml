@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "FANG FontAwesome";
+    Layout = "~/views/shared/_viewfang.cshtml";
+}
+@section headers{
+    <environment names="Development">
+        <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/css/fang/fontawesome.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/css/min/fontawesome.min.css" rel="stylesheet" />
+    </environment>
+}
+
+@section footers{
+    <environment names="Development">
+        <script src="~/js/fang/fontawesome.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/min/fontawesome.min.js"></script>
+    </environment>
+}
+
+@model WebMvcState.Models.FANGFontAwesomeOutModel
+
+<a asp-controller="" asp-action="" class="hide"></a>
+<div class="FontAwesome">
+    <div class="container">
+        <h2>FontAwesome IconFont</h2>
+        @foreach (var font in Model.IconFont.IconFontList)
+        {
+            <h4 class="page-header">@font.FontFamily</h4>
+            <div class="row">
+                @foreach (var icon in font.IconClassList)
+                {
+                    <div class="col col-xs-3 col-sm-1">
+                        <div class="text-center">
+                            <i class="@string.Format("fa {0}",icon.ClassName)"></i>
+                        </div>
+                        <div class="text-center">
+                            <span>@icon.ClassName</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
