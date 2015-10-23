@@ -1,6 +1,6 @@
-ASP.NET 5 Preview
+#ASP.NET 5 Preview
 
-Tool：VisualStudio2015
+#Tool：VisualStudio2015
 
 #param mark -- DNX dnx版本“dnx-clr-win-x86.1.0.0-beta5”无法安装
 解决办法：
