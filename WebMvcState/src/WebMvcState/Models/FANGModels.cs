@@ -46,6 +46,18 @@ namespace WebMvcState.Models
 
     #endregion
 
+    #region DebugAPI
+
+    public class FANGDebugAPIInModel
+    {
+    }
+
+    public class FANGDebugAPIOutModel
+    {
+    }
+
+    #endregion
+
     #region AgileFont
 
     public class FANGAgileFontInModel

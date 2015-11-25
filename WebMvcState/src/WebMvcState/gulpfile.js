@@ -153,6 +153,17 @@ function mfun_gulp() {
         ]
     });
 
+    // DebugAPI
+    array_list_gulp.push({
+        value: "DebugAPI",
+        array_js: [
+            "./wwwroot/js/FANG/DebugAPI.js"
+        ],
+        array_css: [
+            "./wwwroot/css/FANG/DebugAPI.css"
+        ]
+    });
+
     // AgileFont
     array_list_gulp.push({
         value: "AgileFont",

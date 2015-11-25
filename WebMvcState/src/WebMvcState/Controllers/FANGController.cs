@@ -75,6 +75,16 @@ namespace WebMvcState.Controllers
 
             return this.View(model);
         }
+        /// <summary>
+        /// 调试请求DebugAPI的页面
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult DebugAPI()
+        {
+            FANGDebugAPIOutModel model = new FANGDebugAPIOutModel();
+
+            return this.View(model);
+        }
 
         /// <summary>
         /// Agile Lite 所使用的字体
